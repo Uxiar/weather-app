@@ -1,5 +1,4 @@
-/* App.css */
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -9,14 +8,14 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-.parent{
+.parent {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background-position: center;
   background-size: cover;
-  
+  padding: 20px; /* Padding added for small screens */
 }
 
 input {
@@ -63,6 +62,8 @@ button:hover {
   -webkit-backdrop-filter: blur(10px);
   text-align: center;
   transition: transform 0.3s ease;
+  width: 100%; /* Full width on small screens */
+  max-width: 400px; /* Restrict the max width on larger screens */
 }
 
 .div-container:hover {
@@ -80,17 +81,19 @@ p {
   margin: 10px 0;
   font-size: 1.2em;
   font-weight: bold;
-  color:black;
+  color: black;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
-.heading{
+
+.heading {
   color: white;
 }
 
-.style{
+.style {
   color: white;
 }
-.detail{
+
+.detail {
   text-decoration: underline;
 }
 
@@ -105,10 +108,52 @@ img {
     opacity: 0;
   }
   to {
-    opacity: 2;
+    opacity: 1;
   }
 }
 
-.div-container p, .div-container img {
+.div-container p,
+.div-container img {
   animation: fadeIn 1s ease-in-out;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .div-container {
+    padding: 20px; /* Less padding for smaller screens */
+  }
+
+  h1 {
+    font-size: 2em; /* Smaller heading on smaller screens */
+  }
+
+  p {
+    font-size: 1em; /* Smaller font size for text */
+  }
+
+  input {
+    width: 90%; /* Make the input field take more space */
+    font-size: 16px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8em; /* Even smaller on mobile */
+  }
+
+  input {
+    font-size: 14px;
+    width: 100%; /* Full width input on mobile */
+  }
+
+  button {
+    font-size: 12px;
+    padding: 8px 15px;
+  }
 }
