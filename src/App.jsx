@@ -11,7 +11,7 @@ function App() {
   const [city, setCity] = useState('mumbai');
   const [bgimage, setBgimage] = useState(img5);
 
-  const inputHandler = (e) => setInput(e.target.value);
+  const inputHandler = (e) => setInput(e.target.value.toLowerCase());
   
   const buttonHandler = () => {
     setCity(input);
@@ -20,17 +20,18 @@ function App() {
 
   const ApiKey = "da5d9ee6369049959ae112934240508";
 
-  const fetchWeather = async () => {
-    try {
-      const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${ApiKey}&q=${city}&aqi=no`);
-      const data = await response.json();
-      setData(data);
-    } catch (error) {
-      console.error("Error fetching weather data:", error);
-    }
-  };
+
 
   useEffect(() => {
+    const fetchWeather = async () => {
+      try {
+        const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${ApiKey}&q=${city}&aqi=no`);
+        const data = await response.json();
+        setData(data);
+      } catch (error) {
+        console.error("Error fetching weather data:", error);
+      }
+    };
     fetchWeather();
   }, [city]);
 
